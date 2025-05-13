@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'mono': ['"Source Code Pro"', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,9 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				neon: '#9D00FF',
+				darkgray: '#222222',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +90,56 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				typing: {
+					'0%': {
+						width: '0%',
+					},
+					'100%': {
+						width: '100%',
+					}
+				},
+				blink: {
+					'0%, 100%': {
+						opacity: '1',
+					},
+					'50%': {
+						opacity: '0',
+					}
+				},
+				glitch: {
+					'0%, 100%': {
+						transform: 'translate(0)',
+					},
+					'20%': {
+						transform: 'translate(-5px, 5px)',
+					},
+					'40%': {
+						transform: 'translate(-5px, -5px)',
+					},
+					'60%': {
+						transform: 'translate(5px, 5px)',
+					},
+					'80%': {
+						transform: 'translate(5px, -5px)',
+					}
+				},
+				loading: {
+					'0%': {
+						width: '0%',
+					},
+					'100%': {
+						width: '100%',
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				typing: 'typing 3.5s steps(40, end)',
+				blink: 'blink 0.7s step-end infinite',
+				glitch: 'glitch 0.5s ease-in-out infinite',
+				loading: 'loading 2s ease-in-out infinite',
 			}
 		}
 	},
