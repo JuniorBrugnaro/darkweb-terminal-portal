@@ -19,133 +19,61 @@ const Pricing = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-white mb-4">
-            <span className="terminal">Access_Levels</span>
+            <span className="terminal">Esse é o conteúdo que ninguém tem coragem de vender</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Choose your level of immersion in the digital underground. Each tier grants progressively deeper access to our system capabilities.
+            Mentoria direta com um traficante de tráfego pago real, o Lek do Black.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <PricingCard 
-            title="Phantom"
-            price="$0"
-            description="Basic reconnaissance tools"
-            features={[
-              "Limited terminal access",
-              "Public data scraping",
-              "Basic encryption tools",
-              "24-hour session limits"
-            ]}
-            buttonText="Access_Now()"
-            buttonVariant="outline"
-            onButtonClick={handleAccess}
-            isLoading={isLoading}
-          />
+        <div className="max-w-3xl mx-auto">
+          <Card className="bg-darkgray border-neon/30 border-neon ring-2 ring-neon/20 mb-8">
+            <CardHeader>
+              <CardTitle className="text-2xl text-white">Tu vai acessar o conteúdo que ensina:</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center">
+                  <Check className="h-4 w-4 text-neon mr-2" />
+                  <span className="text-gray-300">Como usar cloaker sem tomar no cu</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-4 w-4 text-neon mr-2" />
+                  <span className="text-gray-300">Estratégias de contingência que fazem até o Zuck chorar</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="h-4 w-4 text-neon mr-2" />
+                  <span className="text-gray-300">Copy que vende até golpe do pix</span>
+                </li>
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <div className="text-gray-300 text-sm">
+                🤐 Esse link era pago. Agora é teu... por tempo <span className="text-neon font-bold">LIMITADO</span>.
+              </div>
+            </CardFooter>
+          </Card>
           
-          <PricingCard 
-            title="Shadow"
-            price="$49"
-            description="Enhanced digital capabilities"
-            features={[
-              "Full terminal access",
-              "Advanced cryptography suite",
-              "Stealth networking tools",
-              "Data extraction modules",
-              "Priority support channels"
-            ]}
-            buttonText="Upgrade_Access()"
-            buttonVariant="default"
-            popular={true}
-            onButtonClick={handleAccess}
-            isLoading={isLoading}
-          />
-          
-          <PricingCard 
-            title="Wraith"
-            price="$99"
-            description="Complete underground arsenal"
-            features={[
-              "Root-level system access",
-              "Custom neural interfaces",
-              "Quantum encryption protocols",
-              "Anonymous routing infrastructure",
-              "Unlimited compute resources",
-              "Direct developer communication"
-            ]}
-            buttonText="Unlock_Maximum()"
-            buttonVariant="outline"
-            onButtonClick={handleAccess}
-            isLoading={isLoading}
-          />
+          <div className="flex justify-center">
+            <Button 
+              className="bg-neon hover:bg-neon/80 text-white px-12 py-8 text-xl w-full sm:w-auto"
+              onClick={handleAccess}
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <div className="flex items-center">
+                  <span className="animate-pulse mr-2">...</span>
+                  <span>Processando</span>
+                </div>
+              ) : (
+                <>👉 QUERO ENTRAR NESSE INFERNO VIP 👈</>
+              )}
+            </Button>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
-interface PricingCardProps {
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  buttonText: string;
-  buttonVariant: 'default' | 'outline';
-  popular?: boolean;
-  onButtonClick: () => void;
-  isLoading: boolean;
-}
-
-const PricingCard = ({ 
-  title, 
-  price, 
-  description, 
-  features, 
-  buttonText, 
-  buttonVariant, 
-  popular = false,
-  onButtonClick,
-  isLoading
-}: PricingCardProps) => (
-  <Card className={`bg-darkgray border-neon/30 ${popular ? 'border-neon ring-2 ring-neon/20' : ''}`}>
-    {popular && (
-      <div className="absolute top-0 right-0 transform translate-x-3 -translate-y-3 bg-neon text-black px-3 py-1 text-xs font-bold">
-        RECOMMENDED
-      </div>
-    )}
-    <CardHeader>
-      <CardTitle className="text-2xl text-white">{title}</CardTitle>
-      <div className="flex items-baseline mt-4">
-        <span className="text-4xl font-bold text-white">{price}</span>
-        <span className="ml-2 text-gray-400">/month</span>
-      </div>
-      <CardDescription className="text-gray-300 mt-2">{description}</CardDescription>
-    </CardHeader>
-    <CardContent>
-      <ul className="space-y-3 text-sm">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-center">
-            <Check className="h-4 w-4 text-neon mr-2" />
-            <span className="text-gray-300">{feature}</span>
-          </li>
-        ))}
-      </ul>
-    </CardContent>
-    <CardFooter>
-      <Button 
-        className={`w-full ${buttonVariant === 'default' ? 'bg-neon hover:bg-neon/80 text-white' : 'border-neon text-neon hover:bg-neon/10'}`}
-        onClick={onButtonClick}
-        disabled={isLoading}
-      >
-        {isLoading ? (
-          <div className="flex items-center">
-            <span className="animate-pulse mr-2">...</span>
-            <span>Processing</span>
-          </div>
-        ) : buttonText}
-      </Button>
-    </CardFooter>
-  </Card>
-);
 
 export default Pricing;

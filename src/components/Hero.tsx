@@ -50,20 +50,17 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-              <span className="glitch" data-text="Welcome to the">Welcome to the</span><br />
-              <span className="text-neon typing-container">Digital Underground</span>
+              <span className="glitch" data-text="🚨 VAZOU O MENTOR">🚨 VAZOU O MENTOR</span><br />
+              <span className="text-neon typing-container">QUE OS GURUS ESCONDEM 🚨</span>
             </h1>
             
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
-              Where anonymity meets capability. Navigate the hidden corners of the digital realm with tools reserved for those who dare to venture beyond.
+              O acesso ao Lek do Black caiu na net… Mas só por pouco tempo.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Button className="bg-neon hover:bg-neon/80 text-white px-8 py-6 text-lg w-full sm:w-auto">
-                Begin_Exploration()
-              </Button>
-              <Button variant="outline" className="border-neon text-neon hover:bg-neon/10 px-8 py-6 text-lg w-full sm:w-auto">
-                View_Source_Code()
+                QUERO ENTRAR NESSE INFERNO VIP
               </Button>
             </div>
           </div>
